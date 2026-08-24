@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#070a12">
+  <title>TANVIR GPT — AI × Gaming × Tools</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background Canvas -->
+  <canvas id="particleCanvas"></canvas>
+  
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow orb-blue"></div>
+  <div class="bg-glow orb-orange"></div>
+  <div class="bg-glow orb-purple"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo-group">
+        <div class="logo-icon-wrap">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" stroke-width="2" stroke-linejoin="round"/>
+            <polyline points="2 17 12 22 22 17" stroke-width="2" stroke-linejoin="round"/>
+            <polyline points="2 12 12 17 22 12" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-pulse"></div>
+        </div>
+        <div class="logo-text-col">
+          <span class="logo-main">TANVIR <span class="highlight">GPT</span></span>
+          <span class="logo-sub">MORE THAN A TOOL</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
+        <a href="#home" class="nav-link active" data-nav="home">Home</a>
+        <a href="#about" class="nav-link" data-nav="about">About</a>
+        <a href="#services" class="nav-link" data-nav="services">Services</a>
+        <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation Menu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-links">
+        <a href="#home" class="mobile-link" data-nav="home">
+          <span class="mobile-link-icon">🏠</span> Home
+        </a>
+        <a href="#about" class="mobile-link" data-nav="about">
+          <span class="mobile-link-icon">⚡</span> About
+        </a>
+        <a href="#services" class="mobile-link" data-nav="services">
+          <span class="mobile-link-icon">🛠</span> Services
+        </a>
+        <a href="#contact" class="mobile-link" data-nav="contact">
+          <span class="mobile-link-icon">✉</span> Contact
+        </a>
+      </div>
+      <div class="drawer-footer">
+        <span class="drawer-status"><span class="status-dot"></span> TANVIR GPT Platform Online</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <!-- Hero Header -->
+        <div class="hero-header-box reveal">
+          <div class="hero-welcome-badge">
+            <span class="sparkle">✦</span> WELCOME TO <span class="sparkle">✦</span>
+          </div>
+          <h1 class="hero-title">
+            TANVIR <span class="glow-text">GPT</span>
+          </h1>
+          <div class="hero-tagline-chip">
+            <span>AI</span> <span class="sep">×</span>
+            <span>GAMING</span> <span class="sep">×</span>
+            <span>TOOLS</span> <span class="sep">×</span>
+            <span>FOR YOU</span>
+          </div>
+          <p class="hero-description">
+            One Place. Two Powerful Worlds.<br>
+            <span class="hero-desc-highlight">AI Assistant &amp; Free Fire Tools — All in One Platform.</span>
+          </p>
+          
+          <div class="quote-pill">
+            <div class="quote-pill-icon">✨</div>
+            <div class="quote-pill-text">"Smarter Tools &bull; Stronger You"</div>
+          </div>
+
+          <!-- Hero Action: Download APK -->
+          <div class="hero-actions-box">
+            <button class="btn btn-hero-download" id="btnDownloadApk" onclick="startApkDownload()">
+              <svg class="btn-icon download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span id="downloadBtnText">Download APK</span>
+              <span class="btn-badge-version">v1.0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TWO MAIN FEATURE CARDS -->
+        <div class="cards-grid">
+          <!-- CARD 1: TANVIR GPT -->
+          <div class="portal-card card-ai reveal">
+            <div class="card-glow ai-glow"></div>
+            <div class="card-badge ai-badge">
+              <span class="pulse-dot"></span> AI HUB
+            </div>
+            
+            <div class="card-visual-area ai-visual">
+              <div class="cyber-ring ring-1"></div>
+              <div class="cyber-ring ring-2"></div>
+              <div class="ai-core-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/>
+                  <line x1="9" y1="21" x2="15" y2="21"/>
+                  <line x1="10" y1="9" x2="10" y2="11"/>
+                  <line x1="14" y1="9" x2="14" y2="11"/>
+                  <path d="M10 14h4"/>
+                </svg>
+              </div>
+              <div class="ai-scan-line"></div>
+            </div>
+
+            <div class="card-content">
+              <h2 class="card-title ai-title">TANVIR GPT</h2>
+              <p class="card-subtitle">Your Smart AI Assistant</p>
+              
+              <ul class="features-list ai-features">
+                <li><span class="check-icon">✦</span> AI Chat</li>
+                <li><span class="check-icon">✦</span> Helpful Tools</li>
+                <li><span class="check-icon">✦</span> Smart Solutions</li>
+                <li><span class="check-icon">✦</span> Always With You</li>
+              </ul>
+
+              <button class="btn btn-ai" id="btnOpenTanvirGpt" onclick="openLink('https://symphonious-kheer-3f17ff.netlify.app/')">
+                <span>Open TANVIR GPT</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD 2: TANVIRFF -->
+          <div class="portal-card card-ff reveal">
+            <div class="card-glow ff-glow"></div>
+            <div class="card-badge ff-badge">
+              <span class="pulse-dot ff-pulse"></span> GAMING
+            </div>
+            
+            <div class="card-visual-area ff-visual">
+              <div class="fire-ring ring-1"></div>
+              <div class="fire-ring ring-2"></div>
+              <div class="ff-core-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div class="ff-ember-burst">
+                <span class="ember e1"></span>
+                <span class="ember e2"></span>
+                <span class="ember e3"></span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <h2 class="card-title ff-title">Tanvirff</h2>
+              <p class="card-subtitle">Free Fire UID Checker</p>
+              
+              <ul class="features-list ff-features">
+                <li><span class="check-icon ff-icon">🔥</span> UID Information</li>
+                <li><span class="check-icon ff-icon">🏆</span> Like &amp; Rank Details</li>
+                <li><span class="check-icon ff-icon">📊</span> Player Statistics</li>
+                <li><span class="check-icon ff-icon">⚡</span> Fast &amp; Accurate</li>
+              </ul>
+
+              <button class="btn btn-ff" id="btnOpenTanvirff" onclick="openLink('https://tanvirff140.netlify.app/')">
+                <span>Open Tanvirff</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS / FEATURES SECTION -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-icon-wrapper blue-glow">
+              <span class="stat-emoji">⚡</span>
+            </div>
+            <div class="stat-text">
+              <h3 class="stat-title">Fast</h3>
+              <p class="stat-desc">Quick Access</p>
+            </div>
+          </div>
+
+          <div class="stat-card reveal">
+            <div class="stat-icon-wrapper cyan-glow">
+              <span class="stat-emoji">🛡</span>
+            </div>
+            <div class="stat-text">
+              <h3 class="stat-title">Secure</h3>
+              <p class="stat-desc">Safe &amp; Reliable</p>
+            </div>
+          </div>
+
+          <div class="stat-card reveal">
+            <div class="stat-icon-wrapper orange-glow">
+              <span class="stat-emoji">⭐</span>
+            </div>
+            <div class="stat-text">
+              <h3 class="stat-title">Trusted</h3>
+              <p class="stat-desc">By Many Users</p>
+            </div>
+          </div>
+
+          <div class="stat-card reveal">
+            <div class="stat-icon-wrapper pink-glow">
+              <span class="stat-emoji">💗</span>
+            </div>
+            <div class="stat-text">
+              <h3 class="stat-title">Always</h3>
+              <p class="stat-desc">For You</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">DISCOVER OUR VISION</span>
+          <h2 class="section-title">About <span class="glow-text">TANVIR GPT</span></h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle">
+            "TANVIR GPT is a modern digital platform combining AI tools, smart utilities and gaming-focused experiences in one simple interface."
+          </p>
+        </div>
+
+        <div class="about-cards-grid">
+          <div class="about-mini-card reveal">
+            <div class="about-card-icon ai-mini-glow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                <circle cx="12" cy="16" r="1.5"/>
+              </svg>
+            </div>
+            <h3 class="about-card-title">Smart AI</h3>
+            <p class="about-card-text">Powerful AI experience and useful tools designed to elevate everyday workflows.</p>
+          </div>
+
+          <div class="about-mini-card reveal">
+            <div class="about-card-icon ff-mini-glow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="6 2 18 2 18 6 6 6 6 2"/>
+                <rect x="3" y="6" width="18" height="16" rx="2"/>
+                <circle cx="12" cy="14" r="3"/>
+              </svg>
+            </div>
+            <h3 class="about-card-title">Gaming Tools</h3>
+            <p class="about-card-text">Easy access to gaming-related utilities, player UID tracking, and verified stats.</p>
+          </div>
+
+          <div class="about-mini-card reveal">
+            <div class="about-card-icon modern-mini-glow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="about-card-title">Modern Experience</h3>
+            <p class="about-card-text">Fast, clean and mobile-friendly interface built with high-performance standards.</p>
+          </div>
+        </div>
+
+        <div class="about-cta reveal">
+          <button class="btn btn-outline" id="btnLearnMore" onclick="openModal('aboutModal')">
+            <span>Learn More</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">EXPLORE CAPABILITIES</span>
+          <h2 class="section-title">Platform <span class="glow-text">Services</span></h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle">Choose from our specialized tools crafted for seamless AI and gaming interactions.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon ai-service-icon">🤖</div>
+              <span class="service-tag online">LIVE</span>
+            </div>
+            <h3 class="service-title">AI Assistant</h3>
+            <p class="service-desc">Explore AI-powered conversations and useful tools tailored for your productivity.</p>
+            <button class="service-btn btn-service-ai" onclick="openLink('https://symphonious-kheer-3f17ff.netlify.app/')">
+              <span>Open AI</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon ff-service-icon">🎮</div>
+              <span class="service-tag online ff-tag">LIVE</span>
+            </div>
+            <h3 class="service-title">Free Fire UID</h3>
+            <p class="service-desc">Check available profile information using the UID checker with instant lookup.</p>
+            <button class="service-btn btn-service-ff" onclick="openLink('https://tanvirff140.netlify.app/')">
+              <span>Open UID Checker</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon tool-service-icon">⚡</div>
+              <span class="service-tag coming-soon">SOON</span>
+            </div>
+            <h3 class="service-title">Smart Tools</h3>
+            <p class="service-desc">Useful digital tools in one place for quick conversions, calculators, and utilities.</p>
+            <button class="service-btn btn-service-muted" onclick="showInfoModal('Smart Tools', 'More smart tools are coming soon.')">
+              <span>Explore</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon gaming-service-icon">🏆</div>
+              <span class="service-tag coming-soon">SOON</span>
+            </div>
+            <h3 class="service-title">Gaming Hub</h3>
+            <p class="service-desc">Gaming-focused features, leaderboards, and utilities for competitive players.</p>
+            <button class="service-btn btn-service-muted" onclick="showInfoModal('Gaming Hub', 'Gaming Hub is being prepared.')">
+              <span>Explore</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon ai2-service-icon">🧠</div>
+              <span class="service-tag coming-soon">SOON</span>
+            </div>
+            <h3 class="service-title">AI Tools</h3>
+            <p class="service-desc">Discover simple AI-powered utilities for text enhancement and creative tasks.</p>
+            <button class="service-btn btn-service-muted" onclick="showInfoModal('AI Tools', 'AI Tools suite is under continuous enhancement. Stay tuned!')">
+              <span>Explore</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon update-service-icon">🚀</div>
+              <span class="service-tag v1">v1.0</span>
+            </div>
+            <h3 class="service-title">Updates</h3>
+            <p class="service-desc">Latest platform updates, performance enhancements, and ecosystem improvements.</p>
+            <button class="service-btn btn-service-muted" onclick="showInfoModal('Platform Updates', 'Version 1.0\nTANVIR GPT platform is online.')">
+              <span>View Updates</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section class="quote-section reveal">
+      <div class="container">
+        <div class="quote-container">
+          <div class="quote-mark">“</div>
+          <blockquote class="main-quote">
+            Technology is best when it brings<br class="quote-br"> people closer to their goals.
+          </blockquote>
+          <div class="quote-author">— TANVIR GPT</div>
+          <div class="glowing-underline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">GET IN TOUCH</span>
+          <h2 class="section-title">Contact <span class="glow-text">Support</span></h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle">Have questions or feedback? Send us a direct message anytime.</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Info Badges Column -->
+          <div class="contact-info-col reveal">
+            <div class="contact-feature-card">
+              <div class="contact-feat-icon">📞</div>
+              <div>
+                <h4 class="contact-feat-title">Contact Support</h4>
+                <p class="contact-feat-sub">Dedicated developer assistance</p>
+              </div>
+            </div>
+
+            <div class="contact-feature-card">
+              <div class="contact-feat-icon">⚡</div>
+              <div>
+                <h4 class="contact-feat-title">Quick Response</h4>
+                <p class="contact-feat-sub">Fast replies &amp; resolutions</p>
+              </div>
+            </div>
+
+            <div class="contact-feature-card">
+              <div class="contact-feat-icon">🟢</div>
+              <div>
+                <h4 class="contact-feat-title">Available Online</h4>
+                <p class="contact-feat-sub">Active 24/7 digital hub</p>
+              </div>
+            </div>
+
+            <!-- SOCIAL SECTION -->
+            <div class="social-wrapper">
+              <h4 class="social-title">Follow &amp; Connect</h4>
+              <div class="social-buttons-grid">
+                <button class="social-btn fb-btn" onclick="showSocialModal('Facebook')" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </button>
+                <button class="social-btn yt-btn" onclick="showSocialModal('YouTube')" aria-label="YouTube">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.5l5.75 3.26-5.75 3.26z"/>
+                  </svg>
+                </button>
+                <button class="social-btn gh-btn" onclick="showSocialModal('GitHub')" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                  </svg>
+                </button>
+                <button class="social-btn tg-btn" onclick="showSocialModal('Telegram')" aria-label="Telegram">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21.5 2.5L2.8 9.7c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 11.1-7c.5-.3 1-.1.6.2l-9 8.1v3.9c0 .6.5.9 1 .5l2.6-2.5 5.4 4c1 .5 1.7.3 2-.9l3.5-16.5c.4-1.6-.6-2.3-2.1-1.6z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-col reveal">
+            <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Your Name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="contactName" class="form-input" placeholder="e.g. Alex Tanvir" required>
+                  <span class="input-icon">👤</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address</label>
+                <div class="input-wrapper">
+                  <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required>
+                  <span class="input-icon">✉</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Message</label>
+                <div class="input-wrapper textarea-wrap">
+                  <textarea id="contactMessage" class="form-input form-textarea" rows="4" placeholder="How can we help you today?" required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-submit" id="btnSubmitContact">
+                <span>Send Message</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Left -->
+        <div class="footer-col-left">
+          <div class="footer-logo">TANVIR <span class="highlight">GPT</span></div>
+          <p class="footer-tagline">Stay Smart. Stay Ahead.</p>
+        </div>
+
+        <!-- Middle: Socials -->
+        <div class="footer-col-mid">
+          <div class="footer-social-icons">
+            <button class="footer-social-btn" onclick="showSocialModal('Facebook')" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </button>
+            <button class="footer-social-btn" onclick="showSocialModal('YouTube')" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.5l5.75 3.26-5.75 3.26z"/></svg>
+            </button>
+            <button class="footer-social-btn" onclick="showSocialModal('GitHub')" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </button>
+            <button class="footer-social-btn" onclick="showSocialModal('Telegram')" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 2.5L2.8 9.7c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 11.1-7c.5-.3 1-.1.6.2l-9 8.1v3.9c0 .6.5.9 1 .5l2.6-2.5 5.4 4c1 .5 1.7.3 2-.9l3.5-16.5c.4-1.6-.6-2.3-2.1-1.6z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="footer-col-right">
+          <p class="footer-credit">Made with <span class="heart">❤️</span><br><strong>By Tanvir</strong></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-divider"></div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 TANVIR GPT. All Rights Reserved.</p>
+        <p class="footer-motto">AI Today. A Better Tomorrow.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTopBtn" onclick="scrollToTop()" aria-label="Back to Top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- MODALS -->
+  <!-- General Info Modal -->
+  <div class="modal-overlay" id="infoModal" onclick="closeModalOnOverlay(event, 'infoModal')">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('infoModal')" aria-label="Close modal">&times;</button>
+      <div class="modal-icon-header" id="infoModalIcon">⚡</div>
+      <h3 class="modal-title" id="infoModalTitle">Platform Information</h3>
+      <div class="modal-body" id="infoModalBody">
+        Information details here.
+      </div>
+      <button class="btn btn-ai modal-action-btn" onclick="closeModal('infoModal')">Got it</button>
+    </div>
+  </div>
+
+  <!-- About Learn More Modal -->
+  <div class="modal-overlay" id="aboutModal" onclick="closeModalOnOverlay(event, 'aboutModal')">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('aboutModal')" aria-label="Close modal">&times;</button>
+      <div class="modal-icon-header">🚀</div>
+      <h3 class="modal-title">About TANVIR GPT</h3>
+      <div class="modal-body">
+        <p><strong>TANVIR GPT</strong> is built at the intersection of modern conversational Artificial Intelligence and real-time gaming toolkits.</p>
+        <div class="modal-feature-bullets">
+          <div class="modal-bullet">
+            <span class="bullet-dot blue-dot"></span>
+            <div><strong>Instant AI Assistance:</strong> High-performance AI assistant for real-time problem solving, idea generation, and utility automation.</div>
+          </div>
+          <div class="modal-bullet">
+            <span class="bullet-dot orange-dot"></span>
+            <div><strong>Free Fire Game Toolkit:</strong> Precise player statistics, fast UID verification, like count checks, and tier insights.</div>
+          </div>
+          <div class="modal-bullet">
+            <span class="bullet-dot purple-dot"></span>
+            <div><strong>Ultra Fast &amp; Clean:</strong> Mobile-first responsive architecture designed for speed, security, and fluid usability.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-ai modal-action-btn" onclick="closeModal('aboutModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

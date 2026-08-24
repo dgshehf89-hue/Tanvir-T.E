@@ -1,0 +1,6 @@
+{
+  "name": "TANVIR GPT",
+  "description": "Professional AI Assistant and Free Fire gaming tools portal with a futuristic dark neon design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
